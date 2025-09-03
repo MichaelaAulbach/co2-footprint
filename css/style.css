@@ -1,4 +1,23 @@
+:root {
+    --color-bg: #caeb91;
+    --color-fg: #111111;
+    --color-accent: #58a10e;
+    --color-muted: #6c757d;
+
+    --font-base: 'Calibri light', sans-serif;
+    --font-heading: 'Georiga', serif;
+
+    --space: 1rem;
+    --radius: 12px;
+}
 body {
     margin: 0;
     padding: 0;
+    background: var (--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-base);
+}
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-accent);
 }
