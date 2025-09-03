@@ -9,6 +9,11 @@
 
     --space: 1rem;
     --radius: 12px;
+
+    --bp-sm: 576px;
+    --bp-md: 768px;
+    --bp-lg: 992px;
+    --bp-xl: 1200px;
 }
 body {
     margin: 0;
