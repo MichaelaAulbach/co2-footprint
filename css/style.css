@@ -7,8 +7,9 @@
     --font-base: 'Calibri light', sans-serif;
     --font-heading: 'Poppins', sans-serif;
 
-    --space: 1rem;
-    --radius: 12px;
+    --space-s: 0.5rem;
+    --space-m: 1rem;
+    --radius: 00.75rem;
 
     --bp-sm: 576px;
     --bp-md: 768px;
@@ -26,7 +27,111 @@ h1, h2, h3 {
     font-family: var(--font-heading);
     color: var(--color-accent);
 }
-header img {
-    max-width: 1000px;
-    height: auto;
+.site-header {
+  background: var(--color-bg);
+  text-align: center;
+  padding: var(--space-m);
+}
+.site-header .logo {
+  display: block;
+  margin: 0 auto var(--space-s);
+  width: 90px;
+  height: auto;
+}
+.site-header .site-title {
+  margin: var(--space-s) 0 var(--space-m);
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--color-accent);
+}
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-s);
+  flex-wrap: wrap;
+}
+.nav-link {
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius);
+  background: var(--color-accent);
+  color: var(--color-fg);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-link:hover {
+  background: var(--color-fg);
+  color: var(--color-accent);
+}
+@media (max-width: 600px) {
+  .site-header .logo {
+    width: 70px;
+  }
+  .site-header .site-title {
+    font-size: 1.4rem;
+  }
+}
+@media (min-width: 1000px) {
+  .site-header .logo {
+    width: 110px;
+  }
+  .site-header .site-title {
+    font-size: 2rem;
+  }
+}
+.site-content {
+  padding: var(--space-l) var(--space-m);
+}
+
+.site-content h2 {
+  text-align: center;
+  color: var(--color-accent);
+  margin-bottom: var(--space-m);
+}
+
+.site-content p {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--space-l);
+}
+
+.data-table {
+  overflow-x: auto;
+}
+
+.data-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th, 
+.data-table td {
+  border: 1px solid #ddd;
+  padding: var(--space-s);
+  text-align: center;
+}
+
+.data-table th {
+  background: var(--color-accent);
+  color: var(--color-fg);
+}
+
+.data-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+.site-footer {
+  background: var(--color-accent);
+  color: var(--color-fg);
+  text-align: center;
+  padding: var(--space-m);
+  margin-top: var(--space-l);
+}
+
+.site-footer a {
+  color: var(--color-fg);
+  text-decoration: underline;
+}
+
+.site-footer a:hover {
+  color: var(--color-bg);
 }
