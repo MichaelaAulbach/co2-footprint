@@ -84,13 +84,14 @@ h1, h2, h3 {
 }
 
 .site-content h2 {
-  text-align: center;
+  text-align: left;
+  font-size: 1.2rem;
   color: var(--color-accent);
-  margin-bottom: var(--space-m);
+  margin-bottom: 0.5rem;
 }
 
 .site-content p {
-  text-align: center;
+  text-align: left;
   max-width: 600px;
   margin: 0 auto var(--space-l);
 }
