@@ -136,3 +136,57 @@ h1, h2, h3 {
 .site-footer a:hover {
   color: var(--color-bg);
 }
+.menu-toggle{
+  position: fixed;
+  inset-block-start: 0.75rem;
+  inset-inline-start: 0.75rem;
+  z-index: 1000;
+  padding: 0.5rem 0.75rem;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--color-accent);
+  color: var(--color-fg);
+  font-weight: 700;
+  cursor: pointer;
+}
+.menu-toggle:focus{ outline: 2px solid currentColor; outline-offset: 2px; }
+.local-menu-panel{
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-start: 0;   
+  block-size: 100dvh;
+  inline-size: 0;                    
+  overflow: hidden;
+  z-index: 999;
+  background: #ffffffcc;
+  backdrop-filter: blur(4px);
+  border-inline-end: 1px solid #cdd8c3; 
+  transition: inline-size .25s ease;
+}
+.local-menu-panel.is-open{
+  inline-size: 260px;
+}
+.local-menu-list{
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem;
+  display: grid;
+  gap: 0.5rem;
+}
+.local-menu-list a{
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  background: var(--color-bg);
+  color: #1f3d1f;
+  font-weight: 600;
+}
+.local-menu-list a:hover,
+.local-menu-list a:focus{
+  background: var(--color-accent);
+  color: var(--color-fg);
+}
+@media (max-width: 600px){
+  .menu-toggle{ padding: 0.45rem 0.6rem; }
+}
