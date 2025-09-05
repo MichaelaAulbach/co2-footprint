@@ -9,7 +9,7 @@
 
     --space-s: 0.5rem;
     --space-m: 1rem;
-    --radius: 00.75rem;
+    --radius: 0.75rem;
 
     --bp-sm: 576px;
     --bp-md: 768px;
@@ -100,8 +100,8 @@ h1, h2, h3 {
   overflow-x: auto;
 }
 
-.data-table table {
-  width: 100%;
+table.data-table {
+  width: 100% !important;
   border-collapse: collapse;
 }
 
@@ -113,12 +113,22 @@ h1, h2, h3 {
 }
 
 .data-table th {
-  background: var(--color-accent);
-  color: var(--color-fg);
+  background: var(--color-accent) !important;
+  color: var(--color-fg) !important;
+}
+
+table.table {
+    --bs-table-color: var(--color-fg);
+  --bs-table-bg: transparent;
+  --bs-table-striped-bg: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  --bs-table-striped-color: var(--color-fg);
+  --bs-table-hover-bg: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  --bs-table-hover-color: var(--color-fg);
+  border-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
 }
 
 .data-table tr:nth-child(even) {
-  background: #f9f9f9;
+  background: transparent;
 }
 .site-footer {
   background: var(--color-accent);
