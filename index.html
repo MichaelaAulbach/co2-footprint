@@ -3,12 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy"
+      content="default-src 'self';
+               script-src 'self' https://code.jquery.com https://cdn.datatables.net https://cdn.jsdelivr.net;
+               style-src  'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.datatables.net;
+               font-src   'self' https://fonts.gstatic.com;
+               img-src    'self' data: https:;
+               object-src 'none';
+               base-uri 'self';
+               form-action 'self'">
   <title>CO₂-Emissionen – Länder & Unternehmen im Vergleich</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
   <link href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-
   <link rel="stylesheet" href="./css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -16,10 +23,10 @@
   <button class="menu-toggle" aria-controls="localMenu" aria-expanded="false" aria-label="Menü öffnen">☰ Menü</button>
   <nav id="localMenu" class="local-menu-panel" aria-label="Lokales Menü">
     <ul class="local-menu-list">
-      <li><a href="#abschnitt-1">Einleitung</a></li>
-      <li><a href="#abschnitt-2">Tabelle</a></li>
+      <li><a href="#abschnitt-1">Ziele</a></li>
+      <li><a href="#abschnitt-2">Partner</a></li>
       <li><a href="#abschnitt-3">Methodik</a></li>
-      <li><a href="#abschnitt-4">Fazit</a></li>
+      <li><a href="#abschnitt-4">Über uns</a></li>
     </ul>
   </nav>
 
@@ -84,55 +91,11 @@
       <a href="#impressum">Impressum</a> |
       <a href="#datenschutz">Datenschutz</a></p>
   </footer>
+ <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js" defer></script>
+<script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js" defer></script>
+<script src="./js/script.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
-  <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js" defer></script>
-  <script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js" defer></script>
-  <script>
-    
-    document.addEventListener('DOMContentLoaded', () => {
-      $('#emissionTable').DataTable({
-        order: [[2, 'desc']],
-        pageLength: 10,
-        lengthMenu: [5,10,25,50],
-        columnDefs: [{ targets: 2, type: 'num', className: 'text-end' }],
-        language: {
-          search: 'Suche:',
-          lengthMenu: '_MENU_ pro Seite',
-          info: '_START_–_END_ von _TOTAL_ Einträgen',
-          infoEmpty: '0 Einträge',
-          zeroRecords: 'Keine passenden Einträge gefunden',
-          paginate: { previous: 'Zurück', next: 'Weiter' }
-        }
-      });
-      console.log('✅ DataTables (jQuery) initialisiert');
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const btn = document.querySelector('.menu-toggle');
-      const panel = document.getElementById('localMenu');
-      if (!btn || !panel) return;
-      const toggleMenu = () => {
-        const open = panel.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        if (open) panel.querySelector('a')?.focus();
-      };
-      btn.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(); });
-      document.addEventListener('click', (e) => {
-        if (panel.classList.contains('is-open') && !panel.contains(e.target) && e.target !== btn) {
-          panel.classList.remove('is-open');
-          btn.setAttribute('aria-expanded', 'false');
-        }
-      });
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && panel.classList.contains('is-open')) {
-          panel.classList.remove('is-open');
-          btn.setAttribute('aria-expanded', 'false');
-          btn.focus();
-        }
-      });
-    });
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>

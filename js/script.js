@@ -1,8 +1,5 @@
 "use strict";
 
-import DataTable from "https://cdn.datatables.net/2.1.6/js/dataTables.mjs";
-import "https://cdn.datatables.net/2.1.6/js/dataTables.bootstrap5.mjs";
-
 function initDataTable() {
   const selector = "#emissionTable";
   const el = document.querySelector(selector);
@@ -10,7 +7,17 @@ function initDataTable() {
   if (el.dataset.dtReady === "1") return;
 
   try {
-    const dt = new DataTable(el, {
+    const dt = $(el).DataTable({
+       columns: [
+    { render: $.fn.dataTable.render.text() },                       // Land
+    { render: $.fn.dataTable.render.text() },                       // Unternehmen
+    { render: $.fn.dataTable.render.number(' ', ',', 0, '', '') }   // Emissionen
+  ],
+  search: {
+    regex: false,
+    smart: true,
+    caseInsensitive: true
+  },
       searching:  true,
       ordering:   true,
       order:      [[2, "desc"]],
@@ -26,11 +33,17 @@ function initDataTable() {
         paginate: { previous: "Zurück", next: "Weiter" }
       }
     });
+    const $filter = $(el).closest('.dataTables_wrapper').find('div.dataTables_filter input[type="search"]');
+$filter.attr({ inputmode: 'text', maxlength: 200 });
+$filter.on('input', function () {
+  const clean = this.value.replace(/[\u0000-\u001F\u007F]/g, '').trim().slice(0, 200);
+  if (clean !== this.value) this.value = clean;
+});
     el.dataset.dtReady = "1";
     window._dt = dt;
-    console.log("✅ DataTable v2 (ESM) initialisiert");
+    console.log("DataTables (jQuery v1.13.8) initialisiert");
   } catch (err) {
-    console.error("❌ DataTables-Init fehlgeschlagen:", err);
+    console.error("DataTables-Init fehlgeschlagen:", err);
   }
 }
 
