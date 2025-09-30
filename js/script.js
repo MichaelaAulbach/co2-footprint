@@ -8,6 +8,13 @@ function initDataTable() {
 
   try {
     const dt = $(el).DataTable({
+
+       autoWidth: false,
+  dom:
+    '<"row mb-3"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>' +
+    't' +
+    '<"row mt-3"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"p>>',
+
        columns: [
     { render: $.fn.dataTable.render.text() },                       // Land
     { render: $.fn.dataTable.render.text() },                       // Unternehmen
