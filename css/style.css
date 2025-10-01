@@ -3,6 +3,10 @@
   --color-fg: #111111;
   --color-accent: #49a02f;
   --color-muted: #6c757d;
+  --color-border: #cdd8c3;
+  --color-overlay: #ffffffcc;
+  --color-strong: #1f3d1f;
+
 
   --font-base: 'Calibri light', sans-serif;
   --font-heading: 'Poppins', sans-serif;
@@ -23,7 +27,7 @@ body {
   margin: 0;
   padding: 0;
   background: var(--color-bg);
-  color: var(--color-accent);
+  color: var(--color-fg);
   font-family: var(--font-base);
 }
 
@@ -119,7 +123,7 @@ h3 {
 
 .data-table th,
 .data-table td {
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-border);
   padding: var(--space-s);
   text-align: left;
 }
@@ -193,9 +197,9 @@ table.table {
   inline-size: 0;
   overflow: hidden;
   z-index: 999;
-  background: #ffffffcc;
+  background: var(--color-overlay);
   backdrop-filter: blur(4px);
-  border-inline-end: 1px solid #cdd8c3;
+  border-inline-end: 1px solid var(--color-border);
   transition: inline-size .25s ease;
 }
 
@@ -217,7 +221,7 @@ table.table {
   border-radius: 0.6rem;
   text-decoration: none;
   background: var(--color-bg);
-  color: #1f3d1f;
+  color: var(--color-strong);
   font-weight: 600;
 }
 
