@@ -15,9 +15,9 @@ function initDataTable() {
         '<"row mt-3"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"p>>',
 
       columns: [
-        { render: $.fn.dataTable.render.text() },                       // Land
-        { render: $.fn.dataTable.render.text() },                       // Unternehmen
-        { render: $.fn.dataTable.render.number(' ', ',', 0, '', '') }   // Emissionen
+        { render: $.fn.dataTable.render.text() },                       
+        { render: $.fn.dataTable.render.text() },                     
+        { render: $.fn.dataTable.render.number(' ', ',', 0, '', '') }
       ],
       search: {
         regex: false,
